@@ -1,0 +1,20 @@
+{
+  "name": "ora-box",
+  "version": "1.0.0",
+  "description": "backend for ora",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.11.2",
+    "pg": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://shakirali2244@bitbucket.org/shakirali2244/ora-box.git"
+  },
+  "author": "shakirali2244@yahoo.com",
+  "license": "GPL-v2"
+}
