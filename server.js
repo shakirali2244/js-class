@@ -1,17 +1,10 @@
-var pg = require('pg');
-var conString = "postgres://ora:password@localhost/oraDB";
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var con = require('./db_init/db').client;
+var Wrapper = require('./db_init/Wrapper.js');
+var wrapper = new Wrapper(con);
 
-pg.connect(conString, function(err, client, done) {
-  if(err) {
-    return console.error('error fetching client from pool', err);
-  }
-  client.query('CREATE TABLE IF NOT EXISTS users(name varchar, email varchar , hash varchar , salt bigint);', function (data){
-  	console.log(data);
-  });
-});
 
 io.on('connection', function(socket){
   console.log('a user connected');
@@ -25,3 +18,4 @@ http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
+console.log(wrapper.get());
